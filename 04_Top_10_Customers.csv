@@ -1,0 +1,11 @@
+Customer_ID,Customer_Name,Age,Gender,City,Total_Sales,Total_Orders,Total_Quantity,Customer_Segment
+CUST9510,Customer_345,21.0,Female,Kolkata,867333.24,2,19,High Value
+CUST6845,Customer_337,34.0,Male,Hyderabad,769479.75,2,18,High Value
+CUST6532,Customer_348,30.0,Male,Pune,610981.74,2,15,High Value
+CUST6082,Customer_301,62.0,Male,Mumbai,548416.39,2,16,High Value
+CUST3689,Customer_179,44.0,Female,Delhi,542484.08,2,16,High Value
+CUST3730,Customer_273,41.0,Female,Unknown,538633.97,2,13,High Value
+CUST4706,Customer_34,62.0,Female,Delhi,528036.44,2,11,High Value
+CUST9693,Customer_343,48.0,Male,Patna,511421.86,2,13,High Value
+CUST7374,Customer_375,62.0,Female,Patna,511309.4,2,15,High Value
+CUST2062,Customer_254,58.0,Male,Patna,493677.5,1,10,High Value

@@ -1,0 +1,88 @@
+APEXPLANET DATA ANALYTICS INTERNSHIP
+TASK 3 — DEEP-DIVE ANALYSIS
+Customer Segmentation Analysis
+
+======================================================================
+DATASET VALIDATION
+======================================================================
+
+Total Rows: 1000
+Unique Customers: 947
+Unique Orders: 992
+Repeated Customer Rows: 53
+Repeated Order ID Rows: 8
+
+======================================================================
+CORE KPIs
+======================================================================
+
+                KPI        Value
+        Total Sales 1.393994e+08
+       Total Orders 9.920000e+02
+    Total Customers 9.470000e+02
+     Total Quantity 5.435000e+03
+Average Order Value 1.405236e+05
+ Sales per Customer 1.472011e+05
+
+======================================================================
+CUSTOMER SEGMENT SUMMARY
+======================================================================
+
+Customer_Segment  Customers  Total_Sales  Total_Orders  Total_Quantity  Average_Order_Value  Sales_Contribution_%  Customer_%
+      High Value        237  77048925.29           270            2082        296265.282293             55.272048   25.026399
+    Medium Value        473  56722617.47           491            2590        117155.345317             40.690707   49.947202
+       Low Value        237   5627896.89           239             763         23676.469051              4.037245   25.026399
+
+======================================================================
+TOP 10 CUSTOMERS
+======================================================================
+
+Customer_ID Customer_Name  Age Gender      City  Total_Sales  Total_Orders  Total_Quantity Customer_Segment
+   CUST9510  Customer_345 21.0 Female   Kolkata    867333.24             2              19       High Value
+   CUST6845  Customer_337 34.0   Male Hyderabad    769479.75             2              18       High Value
+   CUST6532  Customer_348 30.0   Male      Pune    610981.74             2              15       High Value
+   CUST6082  Customer_301 62.0   Male    Mumbai    548416.39             2              16       High Value
+   CUST3689  Customer_179 44.0 Female     Delhi    542484.08             2              16       High Value
+   CUST3730  Customer_273 41.0 Female   Unknown    538633.97             2              13       High Value
+   CUST4706   Customer_34 62.0 Female     Delhi    528036.44             2              11       High Value
+   CUST9693  Customer_343 48.0   Male     Patna    511421.86             2              13       High Value
+   CUST7374  Customer_375 62.0 Female     Patna    511309.40             2              15       High Value
+   CUST2062  Customer_254 58.0   Male     Patna    493677.50             1              10       High Value
+
+======================================================================
+CATEGORY PERFORMANCE
+======================================================================
+
+   Category  Total_Sales  Total_Orders  Total_Quantity  Sales_Contribution_%
+Electronics  50778581.70           353            1978             36.426676
+  Education  25031689.40           177             977             17.956808
+    Grocery  22231711.28           151             826             15.948207
+  Furniture  21521561.48           158             855             15.438772
+    Fashion  19835895.79           156             799             14.229538
+
+======================================================================
+PRODUCT PERFORMANCE
+======================================================================
+
+Product  Total_Sales  Total_Orders  Total_Quantity  Sales_Contribution_%
+ Laptop  25443008.51           170             970             18.251873
+ Mobile  25335573.19           184            1008             18.174803
+   Book  25031689.40           177             977             17.956808
+   Rice  22231711.28           151             826             15.948207
+  Chair  21521561.48           158             855             15.438772
+  Shoes  19835895.79           156             799             14.229538
+
+======================================================================
+CITY PERFORMANCE
+======================================================================
+
+     City  Total_Sales  Total_Orders  Total_Quantity  Customers  Sales_per_Customer
+    Patna  19285966.89           135             753        134       143925.126045
+  Kolkata  18884349.57           132             748        132       143063.254318
+Bengaluru  18773574.32           120             670        120       156446.452667
+   Mumbai  18757050.17           131             707        130       144285.001308
+Hyderabad  17166766.87           125             669        125       137334.134960
+    Delhi  16097079.00           125             662        124       129815.153226
+     Pune  14513175.90            98             552         99       146597.736364
+     Gaya  14380859.39           117             609        117       122913.328120
+  Unknown   1540617.54            13              65         13       118509.041538
