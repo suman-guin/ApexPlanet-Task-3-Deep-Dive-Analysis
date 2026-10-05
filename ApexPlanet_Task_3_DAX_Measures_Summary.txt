@@ -1,0 +1,227 @@
+APEXPLANET DATA ANALYTICS INTERNSHIP
+TASK 3 — DAX MEASURES & CALCULATIONS SUMMARY
+================================================
+
+Project:
+Customer Segmentation & Business Intelligence Analysis
+
+Source Dataset:
+ApexPlanet_Cleaned_Dataset.xlsx
+
+
+1. CORE KPI MEASURES
+------------------------------------------------
+
+Total Sales =
+SUM(Sales[Total_Sales])
+
+Total Quantity =
+SUM(Sales[Quantity])
+
+Unique Customers =
+DISTINCTCOUNT(Sales[Customer_ID])
+
+Unique Orders =
+DISTINCTCOUNT(Sales[Order_ID])
+
+Sales per Customer =
+DIVIDE([Total Sales], [Unique Customers])
+
+Average Order Value =
+DIVIDE([Total Sales], [Unique Orders])
+
+
+NOTE:
+Unique Orders uses DISTINCTCOUNT(Order_ID) because the source dataset contains
+repeated Order_ID values. Task 3 analysis identified 992 unique Order IDs
+from 1,000 transaction rows.
+
+
+2. CUSTOMER-LEVEL MEASURES
+------------------------------------------------
+
+Customer Sales =
+SUM(Sales[Total_Sales])
+
+Customer Orders =
+DISTINCTCOUNT(Sales[Order_ID])
+
+Customer Quantity =
+SUM(Sales[Quantity])
+
+Customer Average Order Value =
+DIVIDE([Customer Sales], [Customer Orders])
+
+
+3. CUSTOMER SEGMENTATION LOGIC
+------------------------------------------------
+
+Customer segmentation is based on customer-level Total Sales.
+
+High Value:
+Customer Sales >= 75th percentile
+
+Medium Value:
+Customer Sales >= 25th percentile
+AND Customer Sales < 75th percentile
+
+Low Value:
+Customer Sales < 25th percentile
+
+Reference thresholds from the completed Task 3 analysis:
+
+25th Percentile = 47,859.02
+50th Percentile = 112,029.57
+75th Percentile = 214,435.46
+
+
+4. OPTIONAL CUSTOMER SUMMARY TABLE
+------------------------------------------------
+
+Customer Summary =
+SUMMARIZE(
+    Sales,
+    Sales[Customer_ID],
+    Sales[Customer_Name],
+    Sales[Age],
+    Sales[Gender],
+    Sales[City],
+    "Customer Sales", CALCULATE(SUM(Sales[Total_Sales])),
+    "Customer Orders", CALCULATE(DISTINCTCOUNT(Sales[Order_ID])),
+    "Customer Quantity", CALCULATE(SUM(Sales[Quantity]))
+)
+
+
+5. SEGMENT SALES MEASURES
+------------------------------------------------
+
+High Value Sales =
+CALCULATE(
+    [Total Sales],
+    Customer_Summary[Segment] = "High Value"
+)
+
+Medium Value Sales =
+CALCULATE(
+    [Total Sales],
+    Customer_Summary[Segment] = "Medium Value"
+)
+
+Low Value Sales =
+CALCULATE(
+    [Total Sales],
+    Customer_Summary[Segment] = "Low Value"
+)
+
+
+6. SALES CONTRIBUTION BY SEGMENT
+------------------------------------------------
+
+Segment Sales % =
+DIVIDE(
+    [Total Sales],
+    CALCULATE(
+        [Total Sales],
+        ALL(Customer_Summary[Segment])
+    )
+)
+
+
+7. CUSTOMER COUNT BY SEGMENT
+------------------------------------------------
+
+Segment Customers =
+DISTINCTCOUNT(Customer_Summary[Customer_ID])
+
+Segment Customer % =
+DIVIDE(
+    [Segment Customers],
+    CALCULATE(
+        [Segment Customers],
+        ALL(Customer_Summary[Segment])
+    )
+)
+
+
+8. MONTHLY SALES
+------------------------------------------------
+
+Monthly Sales =
+[Total Sales]
+
+Use Order_Date on the X-axis with Month/Year for the monthly trend.
+
+
+9. CITY SALES PER CUSTOMER
+------------------------------------------------
+
+City Sales per Customer =
+DIVIDE(
+    [Total Sales],
+    DISTINCTCOUNT(Sales[Customer_ID])
+)
+
+
+10. TOP 10 CUSTOMER LOGIC
+------------------------------------------------
+
+Use a table visual containing:
+- Customer_ID
+- Customer_Name
+- City
+- Gender
+- Customer Sales
+- Customer Orders
+- Customer Quantity
+- Segment
+
+Apply:
+Filters → Top N → Top 10 → By Customer Sales
+
+
+11. DATA-QUALITY NOTES
+------------------------------------------------
+
+Dataset rows = 1,000
+Unique Customers = 947
+Unique Order IDs = 992
+Repeated Order ID records = 8
+
+Repeated Order IDs should not automatically be merged because the analysis
+identified repeated IDs associated with different dates, customers, and/or
+products.
+
+For order-level KPIs:
+Unique Orders = DISTINCTCOUNT(Order_ID)
+
+For transaction-row analysis:
+Total Transactions = COUNTROWS(Sales)
+
+
+12. COMPLETED TASK 3 KPI VALUES
+------------------------------------------------
+
+Total Sales = 139,399,439.65
+Unique Customers = 947
+Unique Order IDs = 992
+Total Quantity = 5,435
+Sales per Customer ≈ 147,201.10
+
+High Value Customers = 237
+Medium Value Customers = 473
+Low Value Customers = 237
+
+High Value Sales Contribution = 55.27%
+Electronics Sales Contribution = 36.43%
+
+
+13. IMPLEMENTATION NOTE
+------------------------------------------------
+
+If the final submission is implemented as an HTML dashboard instead of Power BI,
+the HTML dashboard should reproduce the same business logic and values.
+
+This DAX file is included as a professional calculation reference and can be
+used if a Power BI version is required later.
+
+END OF DAX SUMMARY
