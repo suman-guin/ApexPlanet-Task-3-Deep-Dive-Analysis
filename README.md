@@ -7,6 +7,9 @@
 This project is part of my ApexPlanet Data Analytics Internship. The objective of Task 3 was to perform a deep-dive analysis of customer behavior, sales performance, customer segmentation, business trends, and business intelligence insights using a cleaned sales dataset.
 
 The project combines analytical outputs, customer segmentation, business insights, and an interactive HTML dashboard designed with a Power BI-style executive layout.
+## Live Interactive Dashboard
+[View Interactive Dashboard](YOUR_GITHUB_PAGES_LINK)
+
 
 ---
 
